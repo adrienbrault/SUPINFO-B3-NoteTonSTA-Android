@@ -6,17 +6,19 @@
 
     <uses-sdk android:minSdkVersion="8"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application android:label="@string/app_name">
 
-        <activity android:name=".CampusListActivity">
+        <activity android:name=".activity.CampusListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".InterventionListActivity"/>
-        <activity android:name=".InterventionDetailActivity"/>
-        <activity android:name=".EvaluateInterventionActivity"/>
+        <activity android:name=".activity.InterventionListActivity"/>
+        <activity android:name=".activity.InterventionDetailActivity"/>
+        <activity android:name=".activity.EvaluateInterventionActivity"/>
 
     </application>
 

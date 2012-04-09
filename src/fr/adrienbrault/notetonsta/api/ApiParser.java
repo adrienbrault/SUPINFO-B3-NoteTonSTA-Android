@@ -32,8 +32,7 @@ public class ApiParser {
                 JSONObject jsonCampus = jsonCampuses.getJSONObject(i);
 
                 Campus campus = new Campus();
-                campus.setId(jsonCampus.getInt("id"));
-                campus.setName(jsonCampus.getString("name"));
+                fillCampus(campus, jsonCampus);
 
                 campuses.add(campus);
             }
@@ -54,14 +53,10 @@ public class ApiParser {
 
             for (int i = 0; i < jsonInterventions.length(); i++) {
                 JSONObject jsonIntervention = jsonInterventions.getJSONObject(i);
-                JSONObject jsonInterventionDetail = jsonIntervention.getJSONObject("interventionDetail");
 
                 Intervention intervention = new Intervention();
-                intervention.setId(jsonInterventionDetail.getInt("id"));
-                intervention.setSubject(jsonInterventionDetail.getString("subject"));
-                intervention.setDescription(jsonInterventionDetail.getString("description"));
-                intervention.setDateBegin(parseDateString(jsonInterventionDetail.getString("dateBegin")));
-                intervention.setDateEnd(parseDateString(jsonInterventionDetail.getString("dateEnd")));
+
+                fillIntervention(intervention, jsonIntervention);
 
                 interventions.add(intervention);
             }
@@ -72,7 +67,44 @@ public class ApiParser {
         return interventions;
     }
 
-    public static Date parseDateString(String dateString) {
+    public static Intervention parseIntervention(String jsonString) {
+        Intervention intervention = new Intervention();
+
+        try {
+            JSONObject jsonIntervention = new JSONObject(jsonString);
+
+            fillIntervention(intervention, jsonIntervention);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return intervention;
+    }
+
+    private static void fillIntervention(Intervention intervention, JSONObject jsonIntervention) throws JSONException {
+        intervention.setAverageMark(jsonIntervention.getDouble("averageMark"));
+        intervention.setSlidesAverageMark(jsonIntervention.getDouble("slidesAverageMark"));
+        intervention.setSpeakerAverageMark(jsonIntervention.getDouble("speakerAverageMark"));
+        intervention.setEvaluationsCount(jsonIntervention.getInt("evaluationCount"));
+
+        JSONObject jsonInterventionDetail = jsonIntervention.getJSONObject("interventionDetail");
+
+        intervention.setId(jsonInterventionDetail.getInt("id"));
+        intervention.setSubject(jsonInterventionDetail.getString("subject"));
+        intervention.setDescription(jsonInterventionDetail.getString("description"));
+        intervention.setDateBegin(parseDateString(jsonInterventionDetail.getString("dateBegin")));
+        intervention.setDateEnd(parseDateString(jsonInterventionDetail.getString("dateEnd")));
+
+        intervention.setCampus(new Campus());
+        fillCampus(intervention.getCampus(), jsonInterventionDetail.getJSONObject("campus"));
+    }
+
+    private static void fillCampus(Campus campus, JSONObject jsonCampus) throws JSONException {
+        campus.setId(jsonCampus.getInt("id"));
+        campus.setName(jsonCampus.getString("name"));
+    }
+
+    private static Date parseDateString(String dateString) {
         final String pattern = "yyyy-MM-dd'T'hh:mm:ss";
         final SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 

@@ -27,6 +27,14 @@ public class Intervention {
 
     protected List<Evaluation> evaluations;
 
+    protected Double speakerAverageMark;
+
+    protected Double slidesAverageMark;
+
+    protected Double averageMark;
+
+    protected Integer evaluationsCount;
+
     public Intervention() {
 
     }
@@ -93,6 +101,38 @@ public class Intervention {
 
     public void setEvaluations(List<Evaluation> evaluations) {
         this.evaluations = evaluations;
+    }
+
+    public Double getSpeakerAverageMark() {
+        return speakerAverageMark;
+    }
+
+    public void setSpeakerAverageMark(Double speakerAverageMark) {
+        this.speakerAverageMark = speakerAverageMark;
+    }
+
+    public Double getSlidesAverageMark() {
+        return slidesAverageMark;
+    }
+
+    public void setSlidesAverageMark(Double slidesAverageMark) {
+        this.slidesAverageMark = slidesAverageMark;
+    }
+
+    public Double getAverageMark() {
+        return averageMark;
+    }
+
+    public void setAverageMark(Double averageMark) {
+        this.averageMark = averageMark;
+    }
+
+    public Integer getEvaluationsCount() {
+        return evaluationsCount;
+    }
+
+    public void setEvaluationsCount(Integer evaluationsCount) {
+        this.evaluationsCount = evaluationsCount;
     }
 
     public String getStatusString() {

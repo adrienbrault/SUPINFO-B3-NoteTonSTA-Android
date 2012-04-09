@@ -28,6 +28,7 @@ public class ApiClient {
     static public final String BASE_URL = "http://192.168.0.15:8080/NoteTonSTA/api";
     static public final String CAMPUSES_URL = "/campuses";
     static public final String CAMPUSES_INTERVENTIONS_URL = "/campuses/%d/interventions";
+    static public final String INTERVENTION_URL = "/interventions/%d";
 
     private static ApiClient instance;
 
@@ -87,6 +88,14 @@ public class ApiClient {
         String jsonString = getString(httpGet);
 
         return ApiParser.parseInterventions(jsonString);
+    }
+
+    public Intervention getIntervention(Integer interventionId) {
+        HttpGet httpGet = new HttpGet(BASE_URL + String.format(INTERVENTION_URL, interventionId));
+
+        String jsonString = getString(httpGet);
+
+        return ApiParser.parseIntervention(jsonString);
     }
 
 }

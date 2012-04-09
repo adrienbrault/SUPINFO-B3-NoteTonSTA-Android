@@ -35,7 +35,7 @@ public class CampusListActivity extends Activity {
     CampusListAdapter campusListAdapter;
 
     public void onCreate(Bundle savedInstanceState) {
-        
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.campus_list);

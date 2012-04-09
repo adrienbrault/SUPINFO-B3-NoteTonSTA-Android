@@ -2,6 +2,7 @@ package fr.adrienbrault.notetonsta.api;
 
 import android.util.Log;
 import fr.adrienbrault.notetonsta.entity.Campus;
+import fr.adrienbrault.notetonsta.entity.Intervention;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -26,6 +27,7 @@ public class ApiClient {
 
     static public final String BASE_URL = "http://192.168.0.15:8080/NoteTonSTA/api";
     static public final String CAMPUSES_URL = "/campuses";
+    static public final String CAMPUSES_INTERVENTIONS_URL = "/campuses/%d/interventions";
 
     private static ApiClient instance;
 
@@ -77,6 +79,14 @@ public class ApiClient {
         String jsonString = getString(httpGet);
 
         return ApiParser.parseCampuses(jsonString);
+    }
+
+    public List<Intervention> getCampusInterventions(Integer campusId) {
+        HttpGet httpGet = new HttpGet(BASE_URL + String.format(CAMPUSES_INTERVENTIONS_URL, campusId));
+
+        String jsonString = getString(httpGet);
+
+        return ApiParser.parseInterventions(jsonString);
     }
 
 }

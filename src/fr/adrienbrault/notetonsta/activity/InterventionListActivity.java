@@ -14,7 +14,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import fr.adrienbrault.notetonsta.R;
 import fr.adrienbrault.notetonsta.api.ApiClient;
-import fr.adrienbrault.notetonsta.entity.Campus;
 import fr.adrienbrault.notetonsta.entity.Intervention;
 
 import java.text.SimpleDateFormat;

@@ -4,17 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 import fr.adrienbrault.notetonsta.R;
 import fr.adrienbrault.notetonsta.api.ApiClient;
 import fr.adrienbrault.notetonsta.entity.Intervention;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Author: Adrien Brault
@@ -51,8 +49,31 @@ public class InterventionDetailActivity extends Activity {
         averageMarkTextView = (TextView) findViewById(R.id.mark);
 
         interventionId = getIntent().getExtras().getInt("interventionId");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         refreshData();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.intervention_detail, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(this, EvaluateInterventionActivity.class);
+        intent.putExtra("interventionId", intervention.getId());
+
+        startActivity(intent);
+
+        return true;
     }
 
     public void refreshData() {

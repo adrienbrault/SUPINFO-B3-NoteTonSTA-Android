@@ -1,7 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-</LinearLayout>
+    <LinearLayout android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:orientation="vertical">
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="ID Booster"
+                  android:textSize="20dp"/>
+
+        <EditText android:id="@+id/id_booster"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:inputType="number"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Speaker knowledge"
+                  android:textSize="20dp"/>
+
+        <android.widget.RatingBar android:id="@+id/speaker_knowledge_rating"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:rating="2.5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Speaker abilities"
+                  android:textSize="20dp"/>
+
+        <android.widget.RatingBar android:id="@+id/speaker_abilities_rating"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:rating="2.5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Speaker answers quality"
+                  android:textSize="20dp"/>
+
+        <android.widget.RatingBar android:id="@+id/speaker_answers_quality_rating"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:rating="2.5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Slides content richness"
+                  android:textSize="20dp"/>
+
+        <android.widget.RatingBar android:id="@+id/slides_content_richness_rating"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:rating="2.5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Slides format layout"
+                  android:textSize="20dp"/>
+
+        <android.widget.RatingBar android:id="@+id/slides_format_layout_rating"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:rating="2.5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Slides examples"
+                  android:textSize="20dp"/>
+
+        <android.widget.RatingBar android:id="@+id/slides_examples_rating"
+                                  android:layout_width="wrap_content"
+                                  android:layout_height="wrap_content"
+                                  android:layout_gravity="center"
+                                  android:rating="2.5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Comment"
+                  android:textSize="20dp"/>
+
+        <EditText android:id="@+id/comment"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:inputType="textMultiLine"
+                  android:lines="5"/>
+
+        <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/connect_help"
+                android:layout_width="fill_parent"
+                android:layout_height="10dp" />
+
+        <Button android:id="@+id/submit"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:textSize="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

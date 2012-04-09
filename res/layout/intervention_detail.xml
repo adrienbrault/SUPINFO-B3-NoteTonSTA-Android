@@ -1,125 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-    <TextView android:text="Subject:"
-              android:id="@+id/subject_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:paddingRight="5sp"
-            android:textSize="20sp"/>
+    <RelativeLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
 
-    <TextView android:id="@+id/subject"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/subject_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Subject:"
+                  android:id="@+id/subject_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingRight="5sp"
+                android:textSize="20sp"/>
 
-    <TextView android:text="Campus:"
-              android:id="@+id/campus_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/subject"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/subject"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/subject_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/campus"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/campus_label"
-              android:layout_alignTop="@id/campus_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Campus:"
+                  android:id="@+id/campus_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/subject"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-    <TextView android:text="Date:"
-              android:id="@+id/date_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/campus"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/campus"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/campus_label"
+                  android:layout_alignTop="@id/campus_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/date"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/date_label"
-              android:layout_alignTop="@id/date_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Date:"
+                  android:id="@+id/date_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/campus"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-    <TextView android:text="Description:"
-              android:id="@+id/description_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/date"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/date"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/date_label"
+                  android:layout_alignTop="@id/date_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/description"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/description_label"
-              android:layout_alignTop="@id/description_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Description:"
+                  android:id="@+id/description_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/date"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-    <TextView android:text="Evaluation count:"
-              android:id="@+id/evaluation_count_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/description"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/description"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/description_label"
+                  android:layout_alignTop="@id/description_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/evaluation_count"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/evaluation_count_label"
-              android:layout_alignTop="@id/evaluation_count_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Evaluation count:"
+                  android:id="@+id/evaluation_count_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/description"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-    <TextView android:text="Speaker mark:"
-              android:id="@+id/speaker_mark_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/evaluation_count"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/evaluation_count"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/evaluation_count_label"
+                  android:layout_alignTop="@id/evaluation_count_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/speaker_mark"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/speaker_mark_label"
-              android:layout_alignTop="@id/speaker_mark_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Speaker mark:"
+                  android:id="@+id/speaker_mark_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/evaluation_count"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-    <TextView android:text="Slides mark:"
-              android:id="@+id/slides_mark_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/speaker_mark"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/speaker_mark"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/speaker_mark_label"
+                  android:layout_alignTop="@id/speaker_mark_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/slides_mark"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/slides_mark_label"
-              android:layout_alignTop="@id/slides_mark_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Slides mark:"
+                  android:id="@+id/slides_mark_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/speaker_mark"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-    <TextView android:text="Global mark:"
-              android:id="@+id/mark_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_below="@id/slides_mark"
-              android:paddingRight="5sp"
-              android:textSize="20sp"/>
+        <TextView android:id="@+id/slides_mark"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/slides_mark_label"
+                  android:layout_alignTop="@id/slides_mark_label"
+                  android:textSize="20sp"/>
 
-    <TextView android:id="@+id/mark"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_toRightOf="@id/mark_label"
-              android:layout_alignTop="@id/mark_label"
-              android:textSize="20sp"/>
+        <TextView android:text="Global mark:"
+                  android:id="@+id/mark_label"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@id/slides_mark"
+                  android:paddingRight="5sp"
+                  android:textSize="20sp"/>
 
-</RelativeLayout>
+        <TextView android:id="@+id/mark"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_toRightOf="@id/mark_label"
+                  android:layout_alignTop="@id/mark_label"
+                  android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+</ScrollView>

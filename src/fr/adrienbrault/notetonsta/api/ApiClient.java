@@ -1,15 +1,18 @@
 package fr.adrienbrault.notetonsta.api;
 
-import android.util.Log;
 import fr.adrienbrault.notetonsta.entity.Campus;
+import fr.adrienbrault.notetonsta.entity.Evaluation;
 import fr.adrienbrault.notetonsta.entity.Intervention;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,6 +32,7 @@ public class ApiClient {
     static public final String CAMPUSES_URL = "/campuses";
     static public final String CAMPUSES_INTERVENTIONS_URL = "/campuses/%d/interventions";
     static public final String INTERVENTION_URL = "/interventions/%d";
+    static public final String EVALUATIONS_URL = "/evaluations";
 
     private static ApiClient instance;
 
@@ -96,6 +100,47 @@ public class ApiClient {
         String jsonString = getString(httpGet);
 
         return ApiParser.parseIntervention(jsonString);
+    }
+
+    public boolean addEvaluation(Evaluation evaluation, Integer interventionId) {
+        JSONObject jsonEvaluation = null;
+        try {
+            jsonEvaluation = new JSONObject();
+            jsonEvaluation.put("interventionId", interventionId.toString());
+
+            JSONObject jsonEvaluationObject = new JSONObject();
+            jsonEvaluationObject.put("idBooster", evaluation.getIdBooster());
+            jsonEvaluationObject.put("comment", evaluation.getComment());
+            jsonEvaluationObject.put("slidesContentMark", evaluation.getSlidesContentMark());
+            jsonEvaluationObject.put("slidesExamplesMark", evaluation.getSlidesExamplesMark());
+            jsonEvaluationObject.put("slidesFormatMark", evaluation.getSlidesFormatMark());
+            jsonEvaluationObject.put("speakerAnswersMark", evaluation.getSpeakerAnswersMark());
+            jsonEvaluationObject.put("speakerKnowledgeMark", evaluation.getSpeakerKnowledgeMark());
+            jsonEvaluationObject.put("speakerTeachingMark", evaluation.getSpeakerTeachingMark());
+
+            jsonEvaluation.put("evaluation", jsonEvaluationObject);
+
+            HttpResponse response;
+            HttpPost post = new HttpPost(BASE_URL + EVALUATIONS_URL);
+
+            StringEntity se = new StringEntity(jsonEvaluation.toString());
+            post.setEntity(se);
+            post.setHeader("Content-Type", "application/json");
+            response = client.execute(post);
+
+            if(response != null) {
+                StatusLine statusLine = response.getStatusLine();
+
+                if (statusLine.getStatusCode() == 201) {
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 }
